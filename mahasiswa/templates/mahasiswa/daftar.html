@@ -1,0 +1,46 @@
+{% extends 'mahasiswa/base.html' %}
+
+{% block title %}Daftar Mahasiswa{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h2>Daftar Mahasiswa</h2>
+        <p>Kelola data mahasiswa langsung dari halaman user.</p>
+    </div>
+    <div class="page-actions">
+        <a href="{% url 'index' %}" class="btn btn-secondary">Kembali</a>
+        <a href="{% url 'tambah_mahasiswa' %}" class="btn btn-primary">+ Tambah Mahasiswa</a>
+    </div>
+</div>
+
+<div class="table-container">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Program Studi</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mhs in mahasiswa %}
+            <tr>
+                <td>{{ mhs.nim }}</td>
+                <td>{{ mhs.nama }}</td>
+                <td>{{ mhs.programstudi }}</td>
+                <td class="actions">
+                    <a href="{% url 'edit_mahasiswa' mhs.id %}" class="action-link">Edit</a>
+                    <a href="{% url 'hapus_mahasiswa' mhs.id %}" class="action-link action-delete">Hapus</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="empty-row">Belum ada data.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
