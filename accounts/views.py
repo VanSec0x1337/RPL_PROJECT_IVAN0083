@@ -28,11 +28,12 @@ def login_view(request):
             
             if user is not None:
                 auth_login(request, user)
-                # Redirect ke halaman next atau daftar_mahasiswa
+                messages.success(request, f'Selamat Datang, {user.username}')
+                # Redirect ke halaman next atau halaman utama mahasiswa
                 next_url = request.POST.get('next')
                 if next_url:
                     return redirect(next_url)
-                return redirect('daftar_mahasiswa')
+                return redirect('index')
             else:
                 messages.error(
                     request,

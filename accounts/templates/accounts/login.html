@@ -178,6 +178,154 @@
             line-height: 1.5;
         }
 
+        .btn-info {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-info:active {
+            transform: translateY(0);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+        }
+
+        .modal-header h2 {
+            color: #1e6091;
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #1e6091;
+        }
+
+        .modal-section {
+            margin-bottom: 20px;
+        }
+
+        .modal-section h3 {
+            color: #1e6091;
+            font-size: 16px;
+            margin: 15px 0 10px 0;
+            border-left: 4px solid #27ae60;
+            padding-left: 10px;
+        }
+
+        .modal-section p {
+            color: #555;
+            line-height: 1.6;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .feature-list li {
+            color: #555;
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .creator-info {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #1e6091;
+            margin-top: 15px;
+        }
+
+        .creator-info p {
+            margin: 5px 0;
+        }
+
+        .creator-info strong {
+            color: #1e6091;
+        }
+
         /* Responsive Design */
         @media (max-width: 480px) {
             .login-card {
@@ -190,9 +338,19 @@
 
             input[type="text"],
             input[type="password"],
-            .btn-login {
+            .btn-login,
+            .btn-info {
                 font-size: 16px;
                 padding: 12px;
+            }
+
+            .modal-content {
+                padding: 20px;
+                max-height: 90vh;
+            }
+
+            .modal-header h2 {
+                font-size: 18px;
             }
         }
     </style>
@@ -245,18 +403,106 @@
                 </div>
 
                 <button type="submit" class="btn-login">Login</button>
+                <button type="button" class="btn-info" id="info-btn">📖 Mohon dibaca</button>
             </form>
-
-            <div class="info-text">
-                <strong>Akun Admin Testing:</strong><br>
-                Username: <code>admin</code><br>
-                Password: <code>admin888888888888</code>
-            </div>
 
             <div class="login-footer">
                 <p>&copy; 2026 - Praktikum RPL</p>
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal" id="info-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📖 Tentang Aplikasi</h2>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+
+            <div class="modal-section">
+                <h3>ℹ️ Tentang Website</h3>
+                <p>Aplikasi <strong>Praktikum RPL - Django</strong> adalah sistem manajemen data mahasiswa yang dibangun menggunakan framework Django. Aplikasi ini menyediakan fitur pengelolaan data mahasiswa dengan antarmuka yang user-friendly dan responsif.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>👨‍💻 Pembuat</h3>
+                <div class="creator-info">
+                    <p><strong>Nama:</strong> Ivan Surya Buwana</p>
+                    <p><strong>NIM:</strong> G.211.24.0083</p>
+                    <p><strong>Program Studi:</strong> Teknik Informatika</p>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>🎯 Fitur di Halaman Utama (Setelah Login)</h3>
+                <p>Setelah login berhasil, Anda akan memasuki halaman utama yang menyediakan berbagai fitur:</p>
+                <ul class="feature-list">
+                    <li><strong>Selamat Datang Notification</strong> - Pesan sambutan dengan nama user Anda</li>
+                    <li><strong>Daftar Mahasiswa</strong> - Melihat daftar lengkap semua mahasiswa yang terdaftar</li>
+                    <li><strong>CRUD Operations</strong> - Create (tambah), Read (lihat), Update (edit), dan Delete (hapus) data mahasiswa</li>
+                    <li><strong>Form Validation</strong> - Validasi input otomatis dengan pesan yang user-friendly</li>
+                    <li><strong>Audio Player</strong> - Pemutar musik latar yang dapat di-toggle (play/pause)</li>
+                    <li><strong>Persistent Audio</strong> - Musik tetap berjalan saat navigasi antar halaman</li>
+                    <li><strong>Responsive Design</strong> - Desain yang responsif di semua ukuran perangkat</li>
+                    <li><strong>Logout</strong> - Keluar dari aplikasi dengan aman</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>📑 Halaman yang Tersedia</h3>
+                <ul class="feature-list">
+                    <li><strong>Halaman Utama</strong> - Selamat datang dengan ringkasan aplikasi</li>
+                    <li><strong>Daftar Mahasiswa</strong> - Tabel berisi semua data mahasiswa yang terdaftar</li>
+                    <li><strong>Tambah Mahasiswa</strong> - Form untuk menambahkan data mahasiswa baru</li>
+                    <li><strong>Edit Mahasiswa</strong> - Form untuk mengubah data mahasiswa yang sudah ada</li>
+                    <li><strong>Hapus Mahasiswa</strong> - Fungsi untuk menghapus data mahasiswa</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>🔐 Keamanan</h3>
+                <p>Aplikasi ini dilengkapi dengan sistem autentikasi Django yang aman. Hanya pengguna yang sudah login yang dapat mengakses fitur-fitur aplikasi. Setiap aksi dilindungi dengan CSRF token untuk mencegah serangan dari pihak yang tidak berwenang.</p>
+            </div>
+
+            <div class="login-footer" style="margin-top: 30px; border-top: 1px solid #e0e0e0; padding-top: 15px;">
+                <p>Terima kasih telah menggunakan Aplikasi Praktikum RPL!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Info Modal Functionality
+        const infoBtn = document.getElementById('info-btn');
+        const infoModal = document.getElementById('info-modal');
+        const closeModal = document.getElementById('close-modal');
+
+        infoBtn.addEventListener('click', function() {
+            infoModal.classList.add('show');
+        });
+
+        closeModal.addEventListener('click', function() {
+            infoModal.classList.remove('show');
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === infoModal) {
+                infoModal.classList.remove('show');
+            }
+        });
+
+        // Custom validation messages for all required inputs
+        document.querySelectorAll('input[required]').forEach(function(input) {
+            input.addEventListener('invalid', function(e) {
+                if (this.validity.valueMissing) {
+                    this.setCustomValidity('Isi dulu dong bos');
+                }
+            });
+            
+            input.addEventListener('input', function() {
+                this.setCustomValidity('');
+            });
+        });
+    </script>
 </body>
 </html>

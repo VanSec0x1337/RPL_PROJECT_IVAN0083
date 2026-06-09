@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Mahasiswa
 
@@ -31,7 +32,8 @@ def tambah_mahasiswa(request):
         programstudi = request.POST.get('programstudi', '').strip()
 
         if not nim or not nama or not programstudi:
-            error = 'Semua field wajib diisi.'
+            error = 'Harap isi semua field terlebih dahulu.'
+            messages.error(request, error)
         else:
             Mahasiswa.objects.create(nim=nim, nama=nama, programstudi=programstudi)
             return redirect('daftar_mahasiswa')
@@ -55,7 +57,8 @@ def edit_mahasiswa(request, id):
         programstudi = request.POST.get('programstudi', '').strip()
 
         if not nim or not nama or not programstudi:
-            error = 'Semua field wajib diisi.'
+            error = 'Harap isi semua field terlebih dahulu.'
+            messages.error(request, error)
         else:
             mhs.nim = nim
             mhs.nama = nama

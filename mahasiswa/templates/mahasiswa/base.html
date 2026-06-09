@@ -137,6 +137,128 @@
             text-decoration: underline;
         }
 
+        .flash-messages {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .flash-messages .alert {
+            min-width: 320px;
+            max-width: 620px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            animation: blinkGreen 1.2s ease-in-out infinite alternate;
+        }
+
+        .btn-info {
+            display: inline-block;
+            padding: 12px 22px;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-info:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(39, 174, 96, 0.25);
+        }
+
+        .info-section {
+            display: none;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 22px;
+            margin-top: 20px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            line-height: 1.7;
+        }
+
+        .info-section.show {
+            display: block;
+        }
+
+        .info-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .info-section p,
+        .info-section li {
+            color: #444;
+            font-size: 14px;
+        }
+
+        .info-section ul {
+            margin: 12px 0 0 20px;
+            list-style: disc;
+        }
+
+        .flash-messages .alert-success {
+            background-color: #e9f8ec;
+            color: #175c2f;
+            border-left: 4px solid #28a745;
+        }
+
+        .audio-player {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 999;
+        }
+
+        .audio-player-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .audio-player .audio-button {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e6091 0%, #2874a6 100%);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(30, 96, 145, 0.3);
+        }
+
+        .audio-player .audio-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(30, 96, 145, 0.4);
+        }
+
+        .audio-player .audio-button:active {
+            transform: translateY(-1px);
+        }
+
+        .audio-player .audio-progress {
+            display: none;
+        }
+
+        .audio-player-hidden {
+            opacity: 0.9;
+        }
+
+        @keyframes blinkGreen {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0.8; transform: translateY(-2px); }
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -185,16 +307,13 @@
 
 <main>
     {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}" style="
-                padding: 12px 15px;
-                border-radius: 5px;
-                margin-bottom: 15px;
-                border-left: 4px solid;
-            ">
-                {{ message }}
-            </div>
-        {% endfor %}
+        <div class="flash-messages">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
     {% endif %}
     
     {% block content %}
@@ -205,6 +324,103 @@
     <p>&copy; 2026 - Praktikum RPL Django</p>
 </footer>
 
+<div class="audio-player audio-player-hidden" id="audio-player">
+    <div class="audio-player-content">
+        <button class="audio-button" id="audio-toggle" type="button">🔊</button>
+    </div>
+    <div class="audio-progress">
+        <div class="progress-bar" id="audio-progress"></div>
+    </div>
+</div>
+
+<audio id="background-audio" preload="auto">
+    <source src="{% static 'mahasiswa/audio/music.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
 <script src="{% static 'mahasiswa/js/main.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const audio = document.getElementById('background-audio');
+        const toggle = document.getElementById('audio-toggle');
+        const progress = document.getElementById('audio-progress');
+        const player = document.getElementById('audio-player');
+
+        const PLAY_STATE_KEY = 'bgAudioState';
+        const POSITION_KEY = 'bgAudioPosition';
+
+        const savedState = localStorage.getItem(PLAY_STATE_KEY);
+        const savedPosition = parseFloat(localStorage.getItem(POSITION_KEY) || 0);
+
+        const setPlayButton = function(isPlaying) {
+            toggle.textContent = isPlaying ? '🔊' : '🔇';
+        };
+
+        const updateProgress = function() {
+            if (!audio.duration || audio.duration === Infinity) return;
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progress.style.width = percent + '%';
+        };
+
+        if (!isNaN(savedPosition) && savedPosition > 0) {
+            audio.currentTime = savedPosition;
+        }
+
+        if (savedState === 'playing') {
+            audio.play().catch(function() {
+                // autoplay might be blocked; still keep audio ready
+            });
+        }
+
+        audio.addEventListener('play', function() {
+            localStorage.setItem(PLAY_STATE_KEY, 'playing');
+            setPlayButton(true);
+            player.classList.remove('audio-player-hidden');
+        });
+
+        audio.addEventListener('pause', function() {
+            localStorage.setItem(PLAY_STATE_KEY, 'paused');
+            setPlayButton(false);
+        });
+
+        audio.addEventListener('timeupdate', function() {
+            updateProgress();
+            localStorage.setItem(POSITION_KEY, audio.currentTime.toString());
+        });
+
+        audio.addEventListener('ended', function() {
+            localStorage.setItem(PLAY_STATE_KEY, 'paused');
+            setPlayButton(false);
+        });
+
+        toggle.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        });
+
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem(POSITION_KEY, audio.currentTime.toString());
+        });
+
+        setPlayButton(!audio.paused && audio.currentTime > 0);
+        player.classList.remove('audio-player-hidden');
+    });
+
+    // Custom validation messages for all required inputs
+    document.querySelectorAll('input[required]').forEach(function(input) {
+        input.addEventListener('invalid', function(e) {
+            if (this.validity.valueMissing) {
+                this.setCustomValidity('Isi dulu dong bos');
+            }
+        });
+        
+        input.addEventListener('input', function() {
+            this.setCustomValidity('');
+        });
+    });
+</script>
 </body>
 </html>
