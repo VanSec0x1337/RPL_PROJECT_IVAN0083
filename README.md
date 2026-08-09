@@ -160,6 +160,46 @@ dj-database-url
 psycopg2-binary
 
 <div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Rajdhani&weight=700&size=30&duration=3200&pause=1100&color=10B981&center=true&vCenter=true&width=650&lines=PREVIEW+WEBSITE" alt="Website Preview" />
+</div>
+
+<div align="center">
+
+  <h3>🔐 Halaman Login</h3>
+
+  <a href="https://cdn.corenexis.com/f/FskQ1KtYugg.png">
+    <img src="https://cdn.corenexis.com/f/FskQ1KtYugg.png" alt="Preview Halaman Login RPL Project" width="850">
+  </a>
+
+<br><br>
+
+  <p>
+    <i>Tampilan awal halaman login sebelum pengguna masuk ke sistem.</i>
+  </p>
+
+</div>
+
+<br>
+
+<div align="center">
+
+  <h3>📊 Dashboard / Halaman Utama</h3>
+
+  <a href="https://cdn.corenexis.com/f/FPypwvKEImV.png">
+    <img src="https://cdn.corenexis.com/f/FPypwvKEImV.png" alt="Preview Dashboard RPL Project" width="850">
+  </a>
+
+<br><br>
+
+  <p>
+    <i>Tampilan dashboard setelah pengguna berhasil melakukan login.</i>
+  </p>
+
+</div>
+
+💡 Preview: Klik gambar untuk membuka screenshot dalam ukuran penuh.
+
+<div align="center">
   <h2 style="color: #10B981; font-weight: 700;">MODEL DATA</h2>
 </div>
 
@@ -272,13 +312,74 @@ pip install -r requirements.txt
 
 python manage.py migrate
 
-5. Jalankan Development Server
+5. Buat User & Password Sendiri
+
+Aplikasi tidak memerlukan akun bawaan dari pemilik project. Untuk mencobaaplikasi secara lokal, buat akun Django sendiri menggunakan perintah berikut:
+
+python manage.py createsuperuser
+
+Django akan meminta:
+
+Username:
+Email address:
+Password:
+Password (again):
+
+Masukkan username dan password milik sendiri. Contoh:
+
+Username: demo
+Email address: demo@example.com
+Password: ********
+Password (again): ********
+
+⚠️ Catatan: Jangan menggunakan atau membagikan username/password pribadimilik pemilik project. Setiap orang yang menjalankan project secara lokalsebaiknya membuat akun sendiri.
+
+Setelah akun berhasil dibuat, jalankan server:
+
+6. Jalankan Development Server
 
 python manage.py runserver
 
 Kemudian buka:
 
 http://127.0.0.1:8000/accounts/login/
+
+Login menggunakan username dan password yang baru saja dibuat.
+
+Alternatif: Membuat User Biasa Tanpa Superuser
+
+Jika hanya ingin membuat akun untuk login ke aplikasi tanpa akses admin,gunakan Django Shell:
+
+python manage.py shell
+
+Kemudian:
+
+from django.contrib.auth.models import User
+
+User.objects.create_user(
+    username="demo",
+    email="demo@example.com",
+    password="PasswordDemo123!"
+)
+
+Keluar dari shell:
+
+exit()
+
+Setelah itu login menggunakan:
+
+Username : demo
+Password : PasswordDemo123!
+
+Untuk project yang akan digunakan oleh banyak orang, jangan commitpassword asli ke repository. Contoh password di atas hanya untuk demonstrasilokal dan sebaiknya diganti dengan password sendiri.
+
+Login ke Live Website
+
+Live demo tersedia di:
+
+https://vansec1337.pythonanywhere.com/accounts/login/?next=/mahasiswa/
+
+Untuk live website, akun yang digunakan bergantung pada database deployment.README ini tidak menyediakan username/password pemilik project. Jika inginorang lain dapat mencoba live demo menggunakan akun masing-masing, aplikasiperlu menyediakan fitur registrasi atau admin perlu membuatkan akun padadatabase deployment.
 
 <div align="center">
   <h2 style="color: #10B981; font-weight: 700;">ALUR PENGGUNAAN</h2>
@@ -323,6 +424,8 @@ http://127.0.0.1:8000/accounts/login/
 </div>
 
 Aplikasi menggunakan autentikasi Django untuk membatasi akses ke halamanmanajemen mahasiswa. View utama dilindungi dengan login_required, sehinggapengguna harus login terlebih dahulu sebelum mengakses fitur mahasiswa.
+
+Sistem login menggunakan username + password dari Django Authentication.Akun dapat dibuat sendiri menggunakan createsuperuser atau melalui DjangoShell, sehingga pengguna tidak perlu menggunakan akun pribadi pemilik project.
 
 Form POST juga menggunakan mekanisme CSRF protection bawaan Django.
 
