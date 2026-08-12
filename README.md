@@ -1,238 +1,145 @@
-RPL PROJECT — SISTEM MANAJEMEN DATA MAHASISWA
-
 <div align="center">
 
-  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=900&size=42&duration=3000&pause=1000&color=10B981&center=true&vCenter=true&width=750&lines=RPL+PROJECT;Django+Mahasiswa;CRUD+Management;Responsive+Web+Application" alt="RPL Project" />
+<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=800&size=40&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=850&lines=RPL+PROJECT;Django+Student+Management;CRUD+Web+Application;Responsive+Web+Application" alt="RPL Project">
 
-<br><br>
+<p>
+<strong>Django Student Management System</strong>
+</p>
 
-  <p style="color: #059669; font-size: 18px; font-weight: 600;">
-    Sistem manajemen data mahasiswa berbasis Django dengan autentikasi, CRUD,
-    validasi form, audio player, dan desain responsif.
-  </p>
+<p>
+A Django-based web application for managing student data with authentication, CRUD operations, form validation, audio support, and responsive design.
+</p>
 
-  <br>
-
-  <a href="https://vansec1337.pythonanywhere.com/accounts/login/?next=/mahasiswa/">
-    <img src="https://img.shields.io/badge/LIVE%20WEBSITE-10B981?style=for-the-badge&logo=django&logoColor=white" alt="Live Website">
-  </a>
+<p>
+<a href="https://vansec1337.pythonanywhere.com/accounts/login/?next=/mahasiswa/">
+<img src="https://img.shields.io/badge/Live%20Website-A855F7?style=for-the-badge&logo=django&logoColor=white" alt="Live Website">
+</a>
+</p>
 
 </div>
 
-<div align="center">
-  <h2 style="color: #10B981; font-weight: 700;">TENTANG PROJECT</h2>
-</div>
+---
 
-RPL PROJECT adalah aplikasi web praktikum Rekayasa Perangkat Lunak (RPL) yangdibangun menggunakan Django. Aplikasi ini digunakan untuk mengelola datamahasiswa melalui sistem autentikasi dan operasi CRUD (Create, Read, Update,Delete).
+## About
 
-Aplikasi menyediakan halaman login sebelum pengguna dapat mengakses sistemmanajemen mahasiswa. Setelah berhasil login, pengguna dapat melihat daftarmahasiswa, menambahkan data baru, mengedit data, menghapus data, sertamenggunakan fitur pendukung seperti audio player dan desain responsif.
+RPL Project is a Software Engineering practical project built using Django.
 
-🌐 Live Website:https://vansec1337.pythonanywhere.com/accounts/login/?next=/mahasiswa/
+The application provides a student management system with authentication and CRUD operations for creating, viewing, updating, and deleting student data.
 
-<div align="center">
-  <h2 style="color: #10B981; font-weight: 700;">FITUR UNGGULAN</h2>
-</div>
+Users must log in before accessing the student management system. After authentication, users can manage student records and access additional features such as audio playback and responsive layouts.
 
-<table align="center">
-<tr>
-<td align="center" width="50%">
+## Project Objectives
 
-🔐 AUTENTIKASI
+* Implement authentication using Django
+* Manage student data through CRUD operations
+* Validate user input through Django forms
+* Build a responsive web interface
+* Practice Django application structure and routing
+* Deploy the application to a production environment
 
-Login menggunakan sistem autentikasi Django sebelum mengakses halaman mahasiswa.
+---
 
-</td>
-<td align="center" width="50%">
+## Features
 
-👨‍🎓 DATA MAHASISWA
+| Feature                | Description                                                             |
+| ---------------------- | ----------------------------------------------------------------------- |
+| **Authentication**     | Django authentication protects access to the student management system. |
+| **Student Management** | View and manage student records stored in the database.                 |
+| **Create**             | Add new student records through an input form.                          |
+| **Update**             | Edit existing student information.                                      |
+| **Delete**             | Remove student records from the system.                                 |
+| **Form Validation**    | Validate input and display understandable error messages.               |
+| **Audio Player**       | Background music player with play and pause controls.                   |
+| **Responsive Design**  | Interface adapts to different screen sizes and devices.                 |
 
-Menampilkan daftar mahasiswa yang tersimpan di database.
+---
 
-</td>
-</tr>
+## Application Pages
 
-<tr>
-<td align="center" width="50%">
+| Page               | Function                                            |
+| ------------------ | --------------------------------------------------- |
+| **Login**          | Authenticate users before accessing the system      |
+| **Home**           | Display application welcome information and summary |
+| **Student List**   | Display all registered student data                 |
+| **Add Student**    | Add a new student record                            |
+| **Edit Student**   | Update existing student information                 |
+| **Delete Student** | Remove a student record                             |
+| **Logout**         | Safely end the current session                      |
 
-➕ CREATE
+---
 
-Menambahkan data mahasiswa baru melalui form input.
+## Technology Stack
 
-</td>
-<td align="center" width="50%">
+| Technology                  | Purpose                                      |
+| --------------------------- | -------------------------------------------- |
+| **Python**                  | Main programming language                    |
+| **Django 5.1.2**            | Web application framework                    |
+| **SQLite**                  | Local database                               |
+| **Gunicorn**                | Production WSGI server                       |
+| **WhiteNoise**              | Static file serving                          |
+| **dj-database-url**         | Database configuration                       |
+| **PostgreSQL Support**      | Production database compatibility            |
+| **HTML / CSS / JavaScript** | Frontend structure, styling, and interaction |
 
-✏️ UPDATE
+### Dependencies
 
-Mengubah data mahasiswa yang sudah tersimpan.
+The project uses the following main packages:
 
-</td>
-</tr>
-
-<tr>
-<td align="center" width="50%">
-
-🗑️ DELETE
-
-Menghapus data mahasiswa dari sistem.
-
-</td>
-<td align="center" width="50%">
-
-✅ VALIDASI FORM
-
-Validasi input dengan pesan error yang mudah dipahami pengguna.
-
-</td>
-</tr>
-
-<tr>
-<td align="center" width="50%">
-
-🎵 AUDIO PLAYER
-
-Pemutar musik latar dengan kontrol play/pause.
-
-</td>
-<td align="center" width="50%">
-
-📱 RESPONSIVE DESIGN
-
-Tampilan dirancang agar dapat digunakan pada berbagai ukuran perangkat.
-
-</td>
-</tr>
-</table>
-
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Rajdhani&weight=700&size=30&duration=3200&pause=1100&color=10B981&center=true&vCenter=true&width=650&lines=HALAMAN+APLIKASI" alt="Application Pages" />
-</div>
-
-Halaman
-
-Fungsi
-
-🔐 Login
-
-Autentikasi pengguna sebelum masuk ke sistem
-
-🏠 Halaman Utama
-
-Halaman sambutan dan ringkasan aplikasi
-
-👨‍🎓 Daftar Mahasiswa
-
-Melihat seluruh data mahasiswa
-
-➕ Tambah Mahasiswa
-
-Menambahkan data mahasiswa
-
-✏️ Edit Mahasiswa
-
-Mengubah data mahasiswa
-
-🗑️ Hapus Mahasiswa
-
-Menghapus data mahasiswa
-
-🚪 Logout
-
-Keluar dari sistem dengan aman
-
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Rajdhani&weight=700&size=30&duration=3200&pause=1100&color=10B981&center=true&vCenter=true&width=650&lines=TEKNOLOGI+YANG+DIGUNAKAN" alt="Technology Stack" />
-</div>
-
-<div align="center">
-
-
-
-</div>
-
-Dependency
-
-Project menggunakan beberapa package utama:
-
+```text
 Django==5.1.2
 gunicorn
 whitenoise
 dj-database-url
 psycopg2-binary
+```
+
+---
+
+## Website Preview
 
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Rajdhani&weight=700&size=30&duration=3200&pause=1100&color=10B981&center=true&vCenter=true&width=650&lines=PREVIEW+WEBSITE" alt="Website Preview" />
-</div>
 
-<div align="center">
+### Login Page
 
-  <h3>🔐 Halaman Login</h3>
+<a href="https://cdn.corenexis.com/f/FskQ1KtYugg.png">
+<img src="https://cdn.corenexis.com/f/FskQ1KtYugg.png" alt="RPL Project Login Page" width="850">
+</a>
 
-  <a href="https://cdn.corenexis.com/f/FskQ1KtYugg.png">
-    <img src="https://cdn.corenexis.com/f/FskQ1KtYugg.png" alt="Preview Halaman Login RPL Project" width="850">
-  </a>
-
-<br><br>
-
-  <p>
-    <i>Tampilan awal halaman login sebelum pengguna masuk ke sistem.</i>
-  </p>
-
-</div>
+<p>
+<sub>Login page displayed before accessing the student management system.</sub>
+</p>
 
 <br>
 
-<div align="center">
+### Dashboard
 
-  <h3>📊 Dashboard / Halaman Utama</h3>
+<a href="https://cdn.corenexis.com/f/FPypwvKEImV.png">
+<img src="https://cdn.corenexis.com/f/FPypwvKEImV.png" alt="RPL Project Dashboard" width="850">
+</a>
 
-  <a href="https://cdn.corenexis.com/f/FPypwvKEImV.png">
-    <img src="https://cdn.corenexis.com/f/FPypwvKEImV.png" alt="Preview Dashboard RPL Project" width="850">
-  </a>
-
-<br><br>
-
-  <p>
-    <i>Tampilan dashboard setelah pengguna berhasil melakukan login.</i>
-  </p>
+<p>
+<sub>Main dashboard displayed after successful authentication.</sub>
+</p>
 
 </div>
 
-💡 Preview: Klik gambar untuk membuka screenshot dalam ukuran penuh.
+---
 
-<div align="center">
-  <h2 style="color: #10B981; font-weight: 700;">MODEL DATA</h2>
-</div>
+## Data Model
 
-Model utama yang digunakan adalah Mahasiswa dengan field:
+The main model used by the application is `Mahasiswa`.
 
-Field
+| Field          | Type        | Description                                                     |
+| -------------- | ----------- | --------------------------------------------------------------- |
+| `nim`          | `CharField` | Student identification number, maximum 15 characters and unique |
+| `nama`         | `CharField` | Student name, maximum 100 characters                            |
+| `programstudi` | `CharField` | Study program, maximum 50 characters                            |
 
-Tipe
+---
 
-Keterangan
+## Project Structure
 
-nim
-
-CharField
-
-Nomor Induk Mahasiswa, maksimal 15 karakter dan unik
-
-nama
-
-CharField
-
-Nama mahasiswa, maksimal 100 karakter
-
-programstudi
-
-CharField
-
-Program studi, maksimal 50 karakter
-
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Rajdhani&weight=700&size=30&duration=3200&pause=1100&color=10B981&center=true&vCenter=true&width=650&lines=STRUKTUR+PROJECT" alt="Project Structure" />
-</div>
-
+```text
 RPL_PROJECT_IVAN0083/
 │
 ├── accounts/
@@ -282,78 +189,95 @@ RPL_PROJECT_IVAN0083/
 ├── manage.py
 ├── requirements.txt
 └── Procfile
+```
 
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Rajdhani&weight=700&size=30&duration=3200&pause=1100&color=10B981&center=true&vCenter=true&width=650&lines=QUICK+START" alt="Quick Start" />
-</div>
+---
 
-1. Clone Repository
+## Quick Start
 
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/VanSec0x1337/RPL_PROJECT_IVAN0083.git
 cd RPL_PROJECT_IVAN0083
+```
 
-2. Buat Virtual Environment
+### 2. Create a Virtual Environment
 
-Windows:
+#### Windows
 
+```bash
 python -m venv venv
 venv\Scripts\activate
+```
 
-Linux / macOS:
+#### Linux / macOS
 
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 
-3. Install Dependency
+### 3. Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-4. Jalankan Migration
+### 4. Run Database Migrations
 
+```bash
 python manage.py migrate
+```
 
-5. Buat User & Password Sendiri
+### 5. Create Your Own User
 
-Aplikasi tidak memerlukan akun bawaan dari pemilik project. Untuk mencobaaplikasi secara lokal, buat akun Django sendiri menggunakan perintah berikut:
+The project does not require a default account from the project owner.
 
+For local development, create your own Django account:
+
+```bash
 python manage.py createsuperuser
+```
 
-Django akan meminta:
+Django will ask for:
 
+```text
 Username:
 Email address:
 Password:
 Password (again):
+```
 
-Masukkan username dan password milik sendiri. Contoh:
+Use your own username and password.
 
-Username: demo
-Email address: demo@example.com
-Password: ********
-Password (again): ********
+### 6. Run the Development Server
 
-⚠️ Catatan: Jangan menggunakan atau membagikan username/password pribadimilik pemilik project. Setiap orang yang menjalankan project secara lokalsebaiknya membuat akun sendiri.
-
-Setelah akun berhasil dibuat, jalankan server:
-
-6. Jalankan Development Server
-
+```bash
 python manage.py runserver
+```
 
-Kemudian buka:
+Open:
 
+```text
 http://127.0.0.1:8000/accounts/login/
+```
 
-Login menggunakan username dan password yang baru saja dibuat.
+Log in using the account you created.
 
-Alternatif: Membuat User Biasa Tanpa Superuser
+---
 
-Jika hanya ingin membuat akun untuk login ke aplikasi tanpa akses admin,gunakan Django Shell:
+## Creating a Regular User
 
+If you only need an account for application login without administrator access, use the Django shell:
+
+```bash
 python manage.py shell
+```
 
-Kemudian:
+Then:
 
+```python
 from django.contrib.auth.models import User
 
 User.objects.create_user(
@@ -361,108 +285,120 @@ User.objects.create_user(
     email="demo@example.com",
     password="PasswordDemo123!"
 )
+```
 
-Keluar dari shell:
+Exit the shell:
 
+```python
 exit()
+```
 
-Setelah itu login menggunakan:
+You can then log in using the credentials you created.
 
-Username : demo
-Password : PasswordDemo123!
+> Do not commit real passwords to the repository. The example credentials above are only for local demonstration.
 
-Untuk project yang akan digunakan oleh banyak orang, jangan commitpassword asli ke repository. Contoh password di atas hanya untuk demonstrasilokal dan sebaiknya diganti dengan password sendiri.
+---
 
-Login ke Live Website
+## Live Demo
 
-Live demo tersedia di:
+The live website is available at:
 
+<a href="https://vansec1337.pythonanywhere.com/accounts/login/?next=/mahasiswa/">
 https://vansec1337.pythonanywhere.com/accounts/login/?next=/mahasiswa/
+</a>
 
-Untuk live website, akun yang digunakan bergantung pada database deployment.README ini tidak menyediakan username/password pemilik project. Jika inginorang lain dapat mencoba live demo menggunakan akun masing-masing, aplikasiperlu menyediakan fitur registrasi atau admin perlu membuatkan akun padadatabase deployment.
+For the live deployment, available accounts depend on the deployment database.
+
+This README does not provide the project owner's credentials. Users who want to test the live application need an account available in the deployment environment.
+
+---
+
+## Application Flow
+
+```text
+Login
+  ↓
+Dashboard / Home
+  ↓
+Student List
+  ↓
+┌───────────────┬───────────────┐
+│     Create    │     Update    │
+└───────────────┴───────────────┘
+          ↓
+    Student Data
+          ↓
+        Delete
+```
+
+---
+
+## Security
+
+The application uses Django authentication to restrict access to the student management pages.
+
+Protected views use `login_required`, requiring users to authenticate before accessing the main student management features.
+
+The authentication system uses Django's username and password mechanism. Users can create their own accounts using `createsuperuser` or the Django shell.
+
+POST forms also use Django's built-in CSRF protection.
+
+---
+
+## Deployment
+
+The application is configured for deployment using Python web hosting infrastructure.
+
+The project includes:
+
+* `gunicorn` for the WSGI server
+* `whitenoise` for static files
+* `dj-database-url` for database configuration
+* `psycopg2-binary` for PostgreSQL support
+* `Procfile` for deployment configuration
+
+---
+
+## Live Website
 
 <div align="center">
-  <h2 style="color: #10B981; font-weight: 700;">ALUR PENGGUNAAN</h2>
-</div>
 
-┌───────────────────────┐
-│       LOGIN PAGE      │
-│  Username + Password  │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│    HALAMAN UTAMA      │
-│   Dashboard / Home    │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│   DAFTAR MAHASISWA    │
-│    View Data / CRUD   │
-└───────┬───────┬───────┘
-        │       │
-        ▼       ▼
-   ┌────────┐ ┌────────┐
-   │ TAMBAH │ │  EDIT  │
-   └────┬───┘ └────┬───┘
-        │           │
-        └─────┬─────┘
-              ▼
-       ┌──────────────┐
-       │     DATA     │
-       │   MAHASISWA  │
-       └──────┬───────┘
-              │
-              ▼
-         ┌─────────┐
-         │ DELETE  │
-         └─────────┘
-
-<div align="center">
-  <h2 style="color: #10B981; font-weight: 700;">KEAMANAN</h2>
-</div>
-
-Aplikasi menggunakan autentikasi Django untuk membatasi akses ke halamanmanajemen mahasiswa. View utama dilindungi dengan login_required, sehinggapengguna harus login terlebih dahulu sebelum mengakses fitur mahasiswa.
-
-Sistem login menggunakan username + password dari Django Authentication.Akun dapat dibuat sendiri menggunakan createsuperuser atau melalui DjangoShell, sehingga pengguna tidak perlu menggunakan akun pribadi pemilik project.
-
-Form POST juga menggunakan mekanisme CSRF protection bawaan Django.
-
-<div align="center">
-  <h2 style="color: #10B981; font-weight: 700;">LIVE DEMO</h2>
-
-  <br>
-
-  <a href="https://vansec1337.pythonanywhere.com/accounts/login/?next=/mahasiswa/">
-    <img src="https://img.shields.io/badge/🚀%20BUKA%20WEBSITE-10B981?style=for-the-badge" alt="Open Website">
-  </a>
+<a href="https://vansec1337.pythonanywhere.com/accounts/login/?next=/mahasiswa/">
+<img src="https://img.shields.io/badge/Open%20Live%20Website-A855F7?style=for-the-badge&logo=django&logoColor=white" alt="Open Live Website">
+</a>
 
 <br><br>
 
-  <p>
-    <b>RPL Project — Django Student Management System</b>
-  </p>
-  <p>
-    Dibuat untuk kebutuhan praktikum Rekayasa Perangkat Lunak.
-  </p>
-
-</div>
-
-<div align="center">
-
-👨‍💻 AUTHOR
-
-Ivan Surya Buwana
-
-NIM: G.211.24.0083Program Studi: Teknik Informatika
+<strong>RPL Project — Django Student Management System</strong>
 
 <br>
 
+<sub>Software Engineering practical project</sub>
 
+</div>
+
+---
+
+## Author
+
+<div align="center">
+
+<strong>Ivan Surya Buwana</strong>
+
+G.211.24.0083 · Teknik Informatika
 
 <br><br>
 
-© 2026 RPL Project — Ivan Surya Buwana
+<a href="https://github.com/VanSec0x1337">
+<img src="https://img.shields.io/badge/GitHub-VanSec0x1337-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+</a>
+
+<br><br>
+
+Build · Learn · Improve · Repeat
+
+<br><br>
+
+© 2026 RPL Project · Ivan Surya Buwana
 
 </div>
